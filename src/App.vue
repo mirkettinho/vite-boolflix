@@ -1,30 +1,54 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+
+<script>
+import {store} from "./data/store.js"
+import axios from "axios"
+import Header from "./components/Header.vue"
+import Container from "./components/Container.vue"
+import SearchBar from "./components/SearchBar.vue"
+
+
+
+export default {
+  name:"App",
+  data(){
+    return{
+      store
+    }
+  },
+  components:{
+    Header,
+    Container,
+    SearchBar
+  },
+  methods:{
+    getApi(){
+      store.ricerca = this.store.ricerca.trim();
+
+      if(store.ricerca){
+        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&query=${store.ricerca}`) .then(result =>{
+          console.log (result.data.results)
+          store.films = result.data.results
+        })
+        }
+      }
+    }
+}
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  
+  <Header/>
+
+  <SearchBar @search="getApi"/>
+
+  <Container/>
+
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style lang="scss">
+
+@use "./scss/main.scss";
+
+
 </style>
