@@ -17,7 +17,7 @@ export default {
 
   <div>
     <ul>
-      <li v-for="(film,index) in store.films" :key="index"> name: {{ film.name }}</li>
+      <li v-for="(film,index) in store.films" :key="index"> name: {{ film.name }} --- original name: {{ film.original_name }} --- language: {{ film.original_language }} --- vote: {{ film.vote_average }}</li>
     </ul>
   </div>
 </template>
