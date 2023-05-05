@@ -19,6 +19,7 @@ export default {
   <button value="Search" @click="$emit('search')">cerca</button>
 
   <div>
+    <h1>films</h1>
     <ul>
       <li v-for="(film,index) in store.films" :key="index" > name: {{ film.title }} --- original name: {{ film.original_title }} --- language: {{ film.original_language }} --- vote: {{ film.vote_average }} </li>
       
@@ -26,6 +27,7 @@ export default {
   </div>
 <hr>
   <div>
+    <h1>tv seriess</h1>
     <ul>
       <li v-for="(serie,index) in store.series" :key="index"> name: {{ serie.name }} --- original name: {{ serie.original_name }} --- language: {{ serie.original_language }} --- vote: {{ serie.vote_average }} </li>
     </ul>
@@ -34,6 +36,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+h1{
+  font-size: 40px;
+  color: red;
+}
 li{
   color: white;
 }
