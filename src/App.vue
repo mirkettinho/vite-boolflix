@@ -3,8 +3,8 @@
 import {store} from "./data/store.js"
 import axios from "axios"
 import Header from "./components/Header.vue"
-import Container from "./components/Container.vue"
 import SearchBar from "./components/SearchBar.vue"
+import MovieList from "./components/MovieList.vue"
 
 
 
@@ -19,8 +19,8 @@ export default {
   },
   components:{
     Header,
-    Container,
-    SearchBar
+    SearchBar,
+    MovieList
   },
   methods:{
     getApi(){
@@ -28,15 +28,15 @@ export default {
 
       if(store.ricerca){
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&language=it-IT&query=${store.ricerca}`) .then(result =>{
-          console.log (result.data.results)
+          //console.log (result.data.results)
           store.films = result.data.results
           console.log(store.films)
         });
 
-        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&language=it-IT&query=${store.ricerca}`) .then(result =>{
-          console.log (result.data.results)
-          store.series = result.data.results
-        });
+        // axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&language=it-IT&query=${store.ricerca}`) .then(result =>{
+        //   console.log (result.data.results)
+        //   store.series = result.data.results
+        // });
 
         }
       }
@@ -51,7 +51,7 @@ export default {
 
   <SearchBar @search="getApi"/>
 
-  <Container/>
+  <MovieList/>
 
 </template>
 
