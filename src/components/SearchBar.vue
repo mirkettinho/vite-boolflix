@@ -21,15 +21,25 @@ export default {
   <div>
     <h1>films</h1>
     <ul>
-      <li v-for="(film,index) in store.films" :key="index" > name: {{ film.title }} --- original name: {{ film.original_title }} --- language: {{ film.original_language }} --- vote: {{ film.vote_average }} </li>
+      <li v-for="(film,index) in store.films" :key="index" >
+        <div>
+          <img :src="'https://image.tmdb.org/t/p/w342' + film.poster_path " alt="">
+        </div>
+         name: {{ film.title }} --- original name: {{ film.original_title }} --- language: {{ film.original_language }} --- vote: {{ film.vote_average }} 
+        </li>
       
     </ul>
   </div>
-<hr>
+
   <div>
-    <h1>tv seriess</h1>
+    <h1>tv series</h1>
     <ul>
-      <li v-for="(serie,index) in store.series" :key="index"> name: {{ serie.name }} --- original name: {{ serie.original_name }} --- language: {{ serie.original_language }} --- vote: {{ serie.vote_average }} </li>
+      <li v-for="(serie,index) in store.series" :key="index">
+        <div>
+          <img :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path " alt="">
+        </div>
+         name: {{ serie.name }} --- original name: {{ serie.original_name }} --- language: {{ serie.original_language }} --- vote: {{ serie.vote_average }} </li>
+      <!-- <img src="src/assets/img/en.png" alt=""> -->
     </ul>
   </div>
 
@@ -43,4 +53,4 @@ h1{
 li{
   color: white;
 }
-</style>
+</style>cccprova
