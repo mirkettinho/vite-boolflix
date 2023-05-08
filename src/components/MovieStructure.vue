@@ -1,8 +1,12 @@
 
 <script>
 import {store} from "../data/store"
+import MLanguage from "../components/MLanguage.vue"
 
 export default {
+  components: {
+    MLanguage
+  },
   name: "MovieStructure",
   props: {
     film: Object,
@@ -20,7 +24,7 @@ export default {
     <ul>
       <li>{{ film.title }}</li>
       <li>{{ film.original_title }}</li>
-      <li>{{ film.original_language }}</li>
+      <li><MLanguage :language="film.original_language" /></li>
       <li>{{ film.vote_average }}</li>
     </ul>
   </li>
