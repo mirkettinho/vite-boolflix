@@ -26,12 +26,12 @@ export default {
     getApi(){
       store.ricerca = this.store.ricerca.trim();
 
-      if(store.ricerca){
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&language=it-IT&query=${store.ricerca}`) .then(result =>{
-          //console.log (result.data.results)
-          store.films = result.data.results
-          console.log(store.films)
-        });
+       if(store.ricerca){
+         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&language=it-IT&query=${store.ricerca}`) .then(result =>{
+           console.log (result.data.results)
+           store.films = result.data.results
+           console.log(store.films)
+         });
 
         // axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&language=it-IT&query=${store.ricerca}`) .then(result =>{
         //   console.log (result.data.results)
@@ -41,7 +41,8 @@ export default {
         }
       }
     }
-}
+  }
+
 
 </script>
 

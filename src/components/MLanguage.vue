@@ -21,7 +21,12 @@ export default {
         "zh",
         "pt",
         "lv",
-        "cs"
+        "cs",
+        "hi",
+        "nl",
+        "ur",
+        "no",
+        "fi"
       ]
     }
   }
@@ -41,5 +46,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+  
 </style>
