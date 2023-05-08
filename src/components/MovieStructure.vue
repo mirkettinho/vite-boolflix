@@ -15,7 +15,7 @@ export default {
   data(){
     return{
       store,
-      star: Math.ceil(this.film.vote_average/2)
+      stars: Math.ceil(this.film.vote_average/2)
     }
   }
 }
@@ -30,8 +30,8 @@ export default {
         <li>{{ film.original_title }}</li>
         <li><MLanguage :language="film.original_language" /></li>
         <li>
-          <i v-for="n in star" class="fa-solid fa-star"></i> 
-          <i v-for="n in (5 - star)" class="fa-regular fa-star"></i> 
+          <i v-for="star in stars" class="fa-solid fa-star" :key="star"></i> 
+          <i v-for="star in (5 - stars)" class="fa-regular fa-star" :key="star"></i> 
         </li>
       </ul>
     </li>
